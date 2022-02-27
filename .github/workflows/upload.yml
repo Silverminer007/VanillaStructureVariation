@@ -8,10 +8,6 @@ on:
         description: 'The version to publish'
         default: ''
 
-env:
-  CURSEFORGE: ${{ secrets.CURSEFORGE_TOKEN }}
-  MODRINTH: ${{ secrets.MODRINTH_TOKEN }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -65,3 +61,11 @@ jobs:
         with:
           files: ./*.zip
           tag_name: ${{ github.event.inputs.version }}
+      - name: Upload files to curseforge
+        uses: itsmeow/curseforge-upload@v3
+        with:
+          file_path: ./VanillaStructureVariation-${{ github.event.inputs.version }}.zip
+          game_endpoint: "minecraft"
+          game_versions: "Minecraft 1.18:1.18.1,Forge"
+          project_id: "584718"
+          token: ${{ secrets.CURSEFORGE_TOKEN }}
