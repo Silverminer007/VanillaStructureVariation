@@ -66,6 +66,5 @@ jobs:
         with:
           file_path: ./VanillaStructureVariation-${{ github.event.inputs.version }}.zip
           game_endpoint: "minecraft"
-          game_versions: "Minecraft 1.18:1.18.1,Forge"
           project_id: "584718"
           token: ${{ secrets.CURSEFORGE_TOKEN }}
