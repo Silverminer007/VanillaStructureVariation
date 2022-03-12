@@ -23,7 +23,9 @@ jobs:
         with:
           ref: 'master'
       - name: Zip Directory
-        run: zip -r VanillaStructureVariation-${{ github.event.inputs.version }}.zip VanillaStructureVariation/*
+        run: |
+          cd VanillaStructureVariation
+          zip -r ../VanillaStructureVariation-${{ github.event.inputs.version }}.zip data pack.mcmeta
       - name: Create Tag
         id: create_tag
         run: |
