@@ -70,3 +70,4 @@ jobs:
           game_endpoint: "minecraft"
           project_id: "584718"
           token: ${{ secrets.CURSEFORGE_TOKEN }}
+          game_versions: "Minecraft 1.18:1.18.1"
